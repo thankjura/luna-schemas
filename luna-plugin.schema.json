@@ -1,0 +1,77 @@
+{
+  "title": "Luna plugin",
+  "description": "Luna plugin descriptor",
+  "type": "object",
+  "properties": {
+    "key": {
+      "description": "The unique key of plugin",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of plugin",
+      "type": "string"
+    },
+    "description": {
+      "description": "The description of plugin",
+      "type": "string"
+    },
+    "version": {
+      "description": "The version of plugin",
+      "type": "string"
+    },
+    "vendor": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Vendor name",
+          "type": "string"
+        },
+        "url": {
+          "description": "Vendor url",
+          "type": "string"
+        }
+      },
+      "required": ["name", "url"]
+    },
+    "components": {
+      "description": "Collection of defined components",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "description": "Component key",
+            "type": "string"
+          },
+          "name": {
+            "description": "Component name",
+            "type": "string"
+          },
+          "className": {
+            "description": "Component class",
+            "type": "string"
+          },
+          "resources": {
+            "description": "Collection of component resources",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "description": "Relative path from resource folder",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Web Component name for JS components"
+                }
+              },
+              "required": ["path"]
+            }
+          }
+        },
+        "required": ["key", "className", "name"]
+      }
+    }
+  },
+  "required": ["key", "name", "version", "vendor"]
+}
