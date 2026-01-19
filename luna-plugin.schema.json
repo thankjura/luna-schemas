@@ -33,6 +33,13 @@
       },
       "required": ["name", "url"]
     },
+    "scanPackages": {
+      "description": "Collection of package names for scan",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "components": {
       "description": "Collection of defined components",
       "type": "array",
