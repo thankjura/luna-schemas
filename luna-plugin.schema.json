@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Luna plugin",
   "description": "Luna plugin descriptor",
   "type": "object",
@@ -7,12 +8,12 @@
     "Resource": {
       "type": "object",
       "properties": {
-        "key":       { "type": "string", "description": "Resources key" },
+        "key":       { "type": "string", "description": "Resources key: baseName for i18n, componentName for component" },
         "name":      { "type": "string", "description": "Resources name" },
-        "type":      { "type": "string", "description": "Resource type", "enum": ["i18n", "css", "js", "any"] },
+        "type":      { "type": "string", "description": "Resource type", "enum": ["i18n", "comp", "css", "any"] },
         "path":      { "type": "string", "description": "Relative path from resource folder", "format": "uri-reference" }
       },
-      "required": ["key", "path"],
+      "required": ["key", "type", "path"],
       "additionalProperties": false
     },
 
