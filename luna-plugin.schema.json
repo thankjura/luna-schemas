@@ -2,6 +2,28 @@
   "title": "Luna plugin",
   "description": "Luna plugin descriptor",
   "type": "object",
+
+  "$defs": {
+    "Resource": {
+      "type": "object",
+      "properties": {
+        "key":       { "type": "string", "description": "Resources key" },
+        "name":      { "type": "string", "description": "Resources name" },
+        "type":      { "type": "string", "description": "Resource type", "enum": ["i18n", "css", "js", "any"] },
+        "path":      { "type": "string", "description": "Relative path from resource folder", "format": "uri-reference" }
+      },
+      "required": ["key", "path"],
+      "additionalProperties": false
+    },
+
+    "ResourcesList": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Resource" },
+      "minItems": 0
+    }
+  },
+
+
   "properties": {
     "key": {
       "description": "The unique key of plugin",
@@ -40,6 +62,9 @@
         "type": "string"
       }
     },
+    "resources": {
+      "$ref": "#/$defs/ResourcesList"
+    },
     "components": {
       "description": "Collection of defined components",
       "type": "array",
@@ -59,21 +84,7 @@
             "type": "string"
           },
           "resources": {
-            "description": "Collection of component resources",
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "path": {
-                  "description": "Relative path from resource folder",
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Web Component name for JS components"
-                }
-              },
-              "required": ["path"]
-            }
+            "$ref": "#/$defs/ResourcesList"
           }
         },
         "required": ["key", "className", "name"]
