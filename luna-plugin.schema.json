@@ -9,7 +9,6 @@
       "type": "object",
       "properties": {
         "key":       { "type": "string", "description": "Resources key: baseName for i18n, componentName for component" },
-        "name":      { "type": "string", "description": "Resources name" },
         "type":      { "type": "string", "description": "Resource type", "enum": ["i18n", "comp", "css", "any"] },
         "path":      { "type": "string", "description": "Relative path from resource folder", "format": "uri-reference" }
       },
