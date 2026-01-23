@@ -20,6 +20,17 @@
       "type": "array",
       "items": { "$ref": "#/$defs/Resource" },
       "minItems": 0
+    },
+
+    "WebRoute": {
+      "type": "object",
+      "properties": {
+        "routeName":       { "type": "string", "description": "Unique route name" },
+        "routePath":       { "type": "string", "description": "Route path" },
+        "component":       { "type": "string", "description": "Component name" },
+        "children":        { "type": "array",  "description":  "Children routes", "items": { "$ref": "#/$defs/WebRoute" }},
+        "parent":          { "type": "string", "description": "Parent route(ex. admin)" }
+      }
     }
   },
 
@@ -64,6 +75,10 @@
     },
     "resources": {
       "$ref": "#/$defs/ResourcesList"
+    },
+    "routes":  {
+      "type": "array",
+      "description": "Web routes", "items": { "$ref": "#/$defs/WebRoute" }
     },
     "components": {
       "description": "Collection of defined components",
