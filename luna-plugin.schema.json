@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Luna plugin",
-  "description": "Luna plugin descriptor",
+  "description": "Luna plugin descriptor schema",
   "type": "object",
 
   "$defs": {
