@@ -10,7 +10,7 @@
       "properties": {
         "key":       { "type": "string", "description": "Resources key: baseName for i18n, componentName for component" },
         "type":      { "type": "string", "description": "Resource type", "enum": ["i18n", "comp", "css", "any"] },
-        "path":      { "type": "string", "description": "Relative path from resource folder", "format": "uri-reference" }
+        "path":      { "type": "string", "description": "Relative path from resource folder", "format": "path" }
       },
       "required": ["key", "type", "path"],
       "additionalProperties": false
@@ -27,7 +27,7 @@
       "properties": {
         "routeName":       { "type": "string", "description": "Unique route name" },
         "routePath":       { "type": "string", "description": "Route path" },
-        "component":       { "type": "string", "description": "Component name" },
+        "component":       { "type": "string", "description": "Component path", "format": "path" },
         "children":        { "type": "array",  "description":  "Children routes", "items": { "$ref": "#/$defs/WebRoute" }},
         "parent":          { "type": "string", "description": "Parent route(ex. admin)" }
       }
@@ -96,7 +96,8 @@
           },
           "className": {
             "description": "Component class",
-            "type": "string"
+            "type": "string",
+            "x-intellij-base-class": true
           },
           "resources": {
             "$ref": "#/$defs/ResourcesList"
