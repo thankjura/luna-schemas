@@ -97,7 +97,7 @@
           "className": {
             "description": "Component class",
             "type": "string",
-            "x-intellij-base-class": true
+            "x-intellij-class-name": true
           },
           "resources": {
             "$ref": "#/$defs/ResourcesList"
