@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Luna plugin descriptor",
+  "title": "Luna plugin",
   "description": "Luna plugin descriptor schema",
   "type": "object",
 
@@ -73,6 +73,27 @@
         "type": "string"
       }
     },
+    "restPackages": {
+      "description": "Rest packages",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Name of rest group",
+            "type": "string"
+          },
+          "packages": {
+            "description": "A packages containing REST controllers",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "required": ["packages"]
+        }
+      }
+    },
     "resources": {
       "$ref": "#/$defs/ResourcesList"
     },
@@ -97,7 +118,7 @@
           "className": {
             "description": "Component class",
             "type": "string",
-            "x-intellij-class-name": "true"
+            "x-intellij-class-name": true
           },
           "resources": {
             "$ref": "#/$defs/ResourcesList"
