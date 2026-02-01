@@ -33,8 +33,6 @@
       }
     }
   },
-
-
   "properties": {
     "key": {
       "description": "The unique key of plugin",
@@ -99,7 +97,16 @@
     },
     "routes":  {
       "type": "array",
-      "description": "Web routes", "items": { "$ref": "#/$defs/WebRoute" }
+      "description": "Web routes",
+      "items": { "$ref": "#/$defs/WebRoute" }
+    },
+    "activeDocs": {
+      "type": "array",
+      "description": "List of ActiveDocs classes",
+      "items": {
+        "type": "string",
+        "x-intellij-class-name": true
+      }
     },
     "components": {
       "description": "Collection of defined components",
