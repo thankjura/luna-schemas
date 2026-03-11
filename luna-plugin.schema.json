@@ -108,6 +108,66 @@
         "x-intellij-class-name": true
       }
     },
+    "customFieldTypes": {
+      "type": "array",
+      "description": "Define customfield types",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "description": "Customfield component key",
+            "type": "string"
+          },
+          "name": {
+            "description": "Customfield component name",
+            "type": "string"
+          },
+          "className": {
+            "description": "Customfield component class",
+            "type": "string",
+            "x-intellij-class-name": true
+          },
+          "viewComponents": {
+            "description": "View components path",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "path"
+            }
+          },
+          "editComponents": {
+            "description": "Edit components path",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "path"
+            }
+          },
+          "navigatorComponents": {
+            "description": "Navigator components path",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "path"
+            }
+          },
+          "optionsComponent": {
+            "description": "Options components path",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "path"
+            }
+          },
+          "iconPath": {
+            "description": "Icon path",
+            "type": "string",
+            "format": "path"
+          }
+        },
+        "required": ["key", "className", "name"]
+      }
+    },
     "components": {
       "description": "Collection of defined components",
       "type": "array",
