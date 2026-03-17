@@ -142,10 +142,7 @@
           "viewComponents": {
             "description": "View components",
             "type": "array",
-            "items": {
-              "type": "string",
-              "format": "path"
-            }
+            "items": { "$ref": "#/$defs/WebComponent" }
           },
           "editComponents": {
             "description": "Edit components",
