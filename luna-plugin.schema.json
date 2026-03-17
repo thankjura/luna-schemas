@@ -156,8 +156,7 @@
           },
           "optionsComponent": {
             "description": "Options component",
-            "type": "array",
-            "items": { "$ref": "#/$defs/WebComponent" }
+            "$ref": "#/$defs/WebComponent"
           },
           "iconPath": {
             "description": "Icon path",
