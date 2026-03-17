@@ -166,6 +166,9 @@
             "description": "Icon path",
             "type": "string",
             "format": "path"
+          },
+          "resources": {
+            "$ref": "#/$defs/ResourcesList"
           }
         },
         "required": ["key", "className", "name"]
