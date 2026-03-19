@@ -15,6 +15,28 @@
       "required": ["key", "type", "path"],
       "additionalProperties": false
     },
+    "BaseComponent": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "description": "Component key",
+          "type": "string"
+        },
+        "name": {
+          "description": "Component name",
+          "type": "string"
+        },
+        "className": {
+          "description": "Component class",
+          "type": "string",
+          "x-intellij-class-name": true
+        },
+        "resources": {
+          "$ref": "#/$defs/ResourcesList"
+        }
+      },
+      "required": ["key", "className", "name"]
+    },
     "WebComponent": {
       "type": "object",
       "properties": {
@@ -120,80 +142,98 @@
         "x-intellij-class-name": true
       }
     },
-    "customFieldTypes": {
+    "fieldTypes": {
       "type": "array",
       "description": "Define customfield types",
       "items": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "description": "Customfield component key",
-            "type": "string"
-          },
-          "name": {
-            "description": "Customfield component name",
-            "type": "string"
-          },
-          "className": {
-            "description": "Customfield component class",
-            "type": "string",
-            "x-intellij-class-name": true
-          },
-          "viewComponents": {
-            "description": "View components",
-            "type": "array",
-            "items": { "$ref": "#/$defs/WebComponent" }
-          },
-          "editComponents": {
-            "description": "Edit components",
-            "type": "array",
-            "items": { "$ref": "#/$defs/WebComponent" }
-          },
-          "navigatorComponents": {
-            "description": "Navigator components path",
-            "type": "array",
-            "items": { "$ref": "#/$defs/WebComponent" }
-          },
-          "optionsComponent": {
-            "description": "Options component",
-            "$ref": "#/$defs/WebComponent"
-          },
-          "iconPath": {
-            "description": "Icon path",
-            "type": "string",
-            "format": "path"
-          },
-          "resources": {
-            "$ref": "#/$defs/ResourcesList"
+        "allOf": [
+          { "$ref": "#/$defs/BaseComponent" },
+          {
+            "type": "object",
+            "properties": {
+              "viewComponents": {
+                "description": "View components",
+                "type": "array",
+                "items": { "$ref": "#/$defs/WebComponent" }
+              },
+              "editComponents": {
+                "description": "Edit components",
+                "type": "array",
+                "items": { "$ref": "#/$defs/WebComponent" }
+              },
+              "navigatorComponents": {
+                "description": "Navigator components path",
+                "type": "array",
+                "items": { "$ref": "#/$defs/WebComponent" }
+              },
+              "optionsComponent": {
+                "description": "Options component",
+                "$ref": "#/$defs/WebComponent"
+              },
+              "iconPath": {
+                "description": "Icon path",
+                "type": "string",
+                "format": "path"
+              }
+            }
           }
-        },
-        "required": ["key", "className", "name"]
+        ]
+      }
+    },
+    "fieldSearchers": {
+      "type": "array",
+      "description": "Define customfield searchers",
+      "items": {
+        "$ref": "#/$defs/BaseComponent"
+      }
+    },
+    "webSections": {
+      "type": "array",
+      "description": "Define custom web sections",
+      "items": {
+        "$ref": "#/$defs/BaseComponent"
+      }
+    },
+    "webSectionProviders": {
+      "type": "array",
+      "description": "Define web section providers",
+      "items": {
+        "$ref": "#/$defs/BaseComponent"
+      }
+    },
+    "webItems": {
+      "type": "array",
+      "description": "Define custom web items",
+      "items": {
+        "$ref": "#/$defs/BaseComponent"
+      }
+    },
+    "webItemProviders": {
+      "type": "array",
+      "description": "Define custom web item providers",
+      "items": {
+        "$ref": "#/$defs/BaseComponent"
+      }
+    },
+    "issuesExportModules": {
+      "type": "array",
+      "description": "Define issues export modules",
+      "items": {
+        "$ref": "#/$defs/BaseComponent"
+      }
+    },
+    "queryFunctions": {
+      "type": "array",
+      "description": "Define issues export modules",
+      "items": {
+        "$ref": "#/$defs/BaseComponent"
       }
     },
     "components": {
       "description": "Collection of defined components",
       "type": "array",
       "items": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "description": "Component key",
-            "type": "string"
-          },
-          "name": {
-            "description": "Component name",
-            "type": "string"
-          },
-          "className": {
-            "description": "Component class",
-            "type": "string",
-            "x-intellij-class-name": true
-          },
-          "resources": {
-            "$ref": "#/$defs/ResourcesList"
-          }
-        },
-        "required": ["key", "className", "name"]
+        "$ref": "#/$defs/BaseComponent"
       }
     }
   },
