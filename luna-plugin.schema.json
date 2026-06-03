@@ -236,7 +236,18 @@
       "type": "array",
       "description": "Define issues export modules",
       "items": {
-        "$ref": "#/$defs/BaseComponent"
+        "allOf": [
+          { "$ref": "#/$defs/BaseComponent" },
+          {
+            "type": "object",
+            "properties": {
+              "webComponent": {
+                "description": "Web component for configure",
+                "$ref": "#/$defs/WebComponent"
+              }
+            }
+          }
+        ]
       }
     },
     "queryFunctions": {
