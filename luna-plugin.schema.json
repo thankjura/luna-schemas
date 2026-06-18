@@ -10,7 +10,8 @@
       "properties": {
         "key":       { "type": "string", "description": "Resources key: baseName for i18n, componentName for component" },
         "type":      { "type": "string", "description": "Resource type", "enum": ["i18n", "comp", "css", "any"] },
-        "path":      { "type": "string", "description": "Relative path from resource folder", "format": "path" }
+        "path":      { "type": "string", "description": "Relative path from resource folder", "format": "path" },
+        "mount":     { "type": "string", "description": "Specify a mount point if you want to load a resource into the page during initialization.", "enum": ["general", "admin"] }
       },
       "required": ["key", "type", "path"],
       "additionalProperties": false
@@ -200,6 +201,24 @@
     "fieldSearchers": {
       "type": "array",
       "description": "Define customfield searchers",
+      "items": {
+        "allOf": [
+          { "$ref": "#/$defs/BaseComponent" },
+          {
+            "type": "object",
+            "properties": {
+              "editComponent": {
+                "description": "Basic form component",
+                "$ref": "#/$defs/WebComponent"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "filters": {
+      "type": "array",
+      "description": "Define servlet filters",
       "items": {
         "$ref": "#/$defs/BaseComponent"
       }
