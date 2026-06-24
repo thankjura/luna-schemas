@@ -216,9 +216,61 @@
         ]
       }
     },
+    "reportModules": {
+      "type": "array",
+      "description": "Define report modules",
+      "items": {
+        "allOf": [
+          { "$ref": "#/$defs/BaseComponent" },
+          {
+            "type": "object",
+            "properties": {
+              "webComponent": {
+                "description": "View component",
+                "$ref": "#/$defs/WebComponent"
+              },
+              "weight": {
+                "description": "weight",
+                "type": "number"
+              },
+              "thumbnailPath": {
+                "description": "Path to thumbnail image",
+                "type": "string",
+                "format": "path"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "directoryTypes": {
+      "type": "array",
+      "description": "Define user directory types",
+      "items": {
+        "allOf": [
+          { "$ref": "#/$defs/BaseComponent" },
+          {
+            "type": "object",
+            "properties": {
+              "webComponent": {
+                "description": "Settings form component",
+                "$ref": "#/$defs/WebComponent"
+              }
+            }
+          }
+        ]
+      }
+    },
     "filters": {
       "type": "array",
       "description": "Define servlet filters",
+      "items": {
+        "$ref": "#/$defs/BaseComponent"
+      }
+    },
+    "clauseValueProviders": {
+      "type": "array",
+      "description": "Define clause value providers",
       "items": {
         "$ref": "#/$defs/BaseComponent"
       }
