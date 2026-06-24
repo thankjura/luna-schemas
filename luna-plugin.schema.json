@@ -261,6 +261,32 @@
         ]
       }
     },
+    "bulkActions": {
+      "type": "array",
+      "description": "Define custom bulk actions",
+      "items": {
+        "allOf": [
+          { "$ref": "#/$defs/BaseComponent" },
+          {
+            "type": "object",
+            "properties": {
+              "paramsComponent": {
+                "description": "Settings form component",
+                "$ref": "#/$defs/WebComponent"
+              },
+              "confirmComponent": {
+                "description": "Confirm view component",
+                "$ref": "#/$defs/WebComponent"
+              },
+              "weight": {
+                "description": "weight",
+                "type": "number"
+              }
+            }
+          }
+        ]
+      }
+    },
     "filters": {
       "type": "array",
       "description": "Define servlet filters",
