@@ -60,8 +60,8 @@
               "description": "View component",
               "$ref": "#/$defs/WebComponent"
             },
-            "editComponent": {
-              "description": "Edit component",
+            "formComponent": {
+              "description": "Form component",
               "$ref": "#/$defs/WebComponent"
             }
           }
@@ -174,8 +174,8 @@
                 "type": "array",
                 "items": { "$ref": "#/$defs/WebComponent" }
               },
-              "editComponents": {
-                "description": "Edit components",
+              "formComponents": {
+                "description": "Form components",
                 "type": "array",
                 "items": { "$ref": "#/$defs/WebComponent" }
               },
@@ -207,7 +207,7 @@
           {
             "type": "object",
             "properties": {
-              "editComponent": {
+              "formComponent": {
                 "description": "Basic form component",
                 "$ref": "#/$defs/WebComponent"
               }
