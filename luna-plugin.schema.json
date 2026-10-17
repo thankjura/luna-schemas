@@ -329,6 +329,24 @@
         "$ref": "#/$defs/BaseComponent"
       }
     },
+    "webPanels": {
+      "type": "array",
+      "description": "Define custom web panels",
+      "items": {
+        "allOf": [
+          { "$ref": "#/$defs/BaseComponent" },
+          {
+            "type": "object",
+            "properties": {
+              "webComponent": {
+                "description": "Web component for panel",
+                "$ref": "#/$defs/WebComponent"
+              }
+            }
+          }
+        ]
+      }
+    },
     "issuesExportModules": {
       "type": "array",
       "description": "Define issues export modules",
