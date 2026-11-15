@@ -365,6 +365,13 @@
         ]
       }
     },
+    "projectImportParticipants": {
+      "type": "array",
+      "description": "Define project import participants (ProjectImportParticipant): import plugin data when a project is imported from a backup",
+      "items": {
+        "$ref": "#/$defs/BaseComponent"
+      }
+    },
     "queryFunctions": {
       "type": "array",
       "description": "Define issues export modules",
