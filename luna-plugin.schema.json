@@ -188,10 +188,9 @@
                 "description": "Options component",
                 "$ref": "#/$defs/WebComponent"
               },
-              "iconPath": {
-                "description": "Icon path",
-                "type": "string",
-                "format": "path"
+              "previewComponent": {
+                "description": "Component rendering a theme-aware mockup of the field in the field type picker",
+                "$ref": "#/$defs/WebComponent"
               }
             }
           }
@@ -233,10 +232,56 @@
                 "description": "weight",
                 "type": "number"
               },
-              "thumbnailPath": {
-                "description": "Path to thumbnail image",
-                "type": "string",
-                "format": "path"
+              "previewComponent": {
+                "description": "Component rendering a theme-aware mockup of the report in the report list",
+                "$ref": "#/$defs/WebComponent"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "dashboardWidgets": {
+      "type": "array",
+      "description": "Define dashboard widgets",
+      "items": {
+        "allOf": [
+          { "$ref": "#/$defs/BaseComponent" },
+          {
+            "type": "object",
+            "required": ["viewComponent"],
+            "properties": {
+              "viewComponent": {
+                "description": "Component rendering the widget on the dashboard",
+                "$ref": "#/$defs/WebComponent"
+              },
+              "formComponent": {
+                "description": "Widget settings form component",
+                "$ref": "#/$defs/WebComponent"
+              },
+              "previewComponent": {
+                "description": "Component rendering a theme-aware mockup of the widget in the \"Add widget\" dialog",
+                "$ref": "#/$defs/WebComponent"
+              },
+              "minColumns": {
+                "description": "Minimal width in dashboard grid columns",
+                "type": "integer",
+                "minimum": 1
+              },
+              "minRows": {
+                "description": "Minimal height in dashboard grid rows",
+                "type": "integer",
+                "minimum": 1
+              },
+              "defaultColumns": {
+                "description": "Width in grid columns of a newly added widget",
+                "type": "integer",
+                "minimum": 1
+              },
+              "defaultRows": {
+                "description": "Height in grid rows of a newly added widget",
+                "type": "integer",
+                "minimum": 1
               }
             }
           }
